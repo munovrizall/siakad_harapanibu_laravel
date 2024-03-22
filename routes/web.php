@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('login');
+    return view('pages.auth.login');
 });
 
-Route::get('/home', function () {
-    return view('home');
+Route::middleware(['auth'])->group(function () {
+    Route::get('home', function () {
+        return view('pages.home');
+    })->name('home');
 });
 
 Route::get('/data-guru', function () {
