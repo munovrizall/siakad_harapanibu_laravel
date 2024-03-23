@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class AkunPenggunaController extends Controller
 {
@@ -17,7 +18,7 @@ class AkunPenggunaController extends Controller
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('name', 'like', '%' . $name . '%');
             })
-            ->paginate(5);
+            ->paginate(10);
         return view('pages.admin.akun.index', compact('users'));
     }
 
@@ -34,7 +35,13 @@ class AkunPenggunaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $data['password'] = Hash::make($request->input('password'));
+        User::create($data);
+
+        session()->flash('success', 'Akun pengguna berhasil dibuat.');
+        
+        return redirect()->route('akun.index');
     }
 
     /**
@@ -42,7 +49,7 @@ class AkunPenggunaController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('pages.home');
     }
 
     /**
@@ -57,16 +64,30 @@ class AkunPenggunaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $user = User::findOrFail($id);
+
+        if($request->input('password')) {
+            $data['password'] = Hash::make($request->input('password'));
+        } else {
+            $data['password'] = $user->password;
+        }
+        $user->update($data);
+
+        session()->flash('success', 'Akun pengguna berhasil diubah.');
+        return redirect()->route('akun.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        session()->flash('danger', 'Akun pengguna berhasil dihapus.');
+        return redirect()->route('akun.index');
     }
 }

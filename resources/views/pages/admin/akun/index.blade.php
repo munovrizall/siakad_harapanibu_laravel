@@ -13,7 +13,7 @@
         <div class="section-header">
             <h1>Akun Pengguna</h1>
             <div class="section-header-button">
-                <a href="{{ route('akun.create') }}" class="btn btn-primary">Add New</a>
+                <a href="{{ route('akun.create') }}" class="btn btn-primary"> <i class="fas fa-plus" style="margin-right: 8px;"></i>Buat Akun</a>
             </div>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ url('/home') }}">Home</a></div>
@@ -22,6 +22,27 @@
             </div>
         </div>
         <div class="section-body">
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    {{ session('success') }}
+                </div>
+            </div>
+            @endif
+
+            @if (session('danger'))
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    {{ session('danger') }}
+                </div>
+            </div>
+            @endif
             {{-- <div class="row">
                     <div class="col-12">
                         @include('layouts.alert')
@@ -32,24 +53,28 @@
                 Anda dapat mengatur semua pengguna, seperti membuat, mengubah, menghapus akun.
             </p>
 
-
             <div class="row mt-4">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4>Semua Akun</h4>
-                        </div>
                         <div class="card-body">
-                            <div class="float-right">
-                                <form method="GET" action="{{ route('akun.index') }}">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search" name="name">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary"><i class="fas fa-search"></i></button>
-                                        </div>
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <h5>Semua Akun</h5>
+                                </div>
+                                <div class="col-6">
+                                    <div class="float-right">
+                                        <form method="GET" action="{{ route('akun.index') }}">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="Search" name="name">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
+                                </div>
                             </div>
+
 
                             <div class="clearfix mb-3"></div>
 
@@ -84,7 +109,7 @@
                                                     <input type="hidden" name="_method" value="DELETE" />
                                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                                     <button class="btn btn-sm btn-danger btn-icon confirm-delete">
-                                                        <i class="fas fa-times"></i> Delete
+                                                        <i class="fas fa-times"></i> Hapus
                                                     </button>
                                                 </form>
                                             </div>
