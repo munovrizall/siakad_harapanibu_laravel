@@ -32,6 +32,10 @@
             <li class="{{ Request::is('nilai-pelajaran') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/nilai-pelajaran') }}"><i class="fas fa-book"></i> <span>Nilai Pelajaran</span></a>
             </li>
+
+            <li class="{{ Request::is('akun*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/akun') }}"><i class="fas fa-user-gear"></i> <span>Akun Pengguna</span></a>
+            </li>
             
         </ul>
 
