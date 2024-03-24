@@ -13,8 +13,8 @@
                 <a class="nav-link" href="{{ url('/home') }}"><i class="fas fa-home"></i> <span>Home</span></a>
             </li>
             
-            <li class="{{ Request::is('data-guru') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/data-guru') }}"><i class="fas fa-user"></i> <span>Data Guru</span></a>
+            <li class="{{ Request::is('guru*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/guru') }}"><i class="fas fa-chalkboard-user"></i> <span>Data Guru</span></a>
             </li>
            
             <li class="{{ Request::is('data-siswa') ? 'active' : '' }}">

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AkunPenggunaController;
+use App\Http\Controllers\GuruController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     })->name('home');
     
     Route::resource('akun', AkunPenggunaController::class);
+    Route::resource('guru', GuruController::class);
 });
 
 Route::get('/data-guru', function () {
