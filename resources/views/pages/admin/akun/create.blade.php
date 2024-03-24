@@ -37,7 +37,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Nama Pengguna</label>
+                            <label>Nama Pengguna <span style="color: red;">*</span></label>
                             <input type="text" class="form-control @error('name')
                                 is-invalid
                             @enderror" name="name">
@@ -48,7 +48,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>Email <span style="color: red;">*</span></label>
                             <input type="email" class="form-control @error('email')
                                 is-invalid
                             @enderror" name="email">
@@ -59,7 +59,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Password</label>
+                            <label>Password <span style="color: red;">*</span></label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">
@@ -77,7 +77,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Jenis Akun</label>
+                            <label class="form-label">Jenis Akun <span style="color: red;">*</span></label>
                             <div class="selectgroup w-100">
                                 <label class="selectgroup-item">
                                     <input type="radio" name="roles" value="ADMIN" class="selectgroup-input" checked="">

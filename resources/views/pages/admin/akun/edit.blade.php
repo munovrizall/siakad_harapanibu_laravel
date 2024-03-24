@@ -38,7 +38,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Nama Pengguna</label>
+                            <label>Nama Pengguna <span style="color: red;">*</span></label>
                             <input type="text" class="form-control @error('name')
                                 is-invalid
                             @enderror" name="name" value="{{ $user->name }}">
@@ -49,7 +49,7 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                            <label>Email</label>
+                            <label>Email <span style="color: red;">*</span></label>
                             <input type="email" class="form-control @error('email')
                                 is-invalid
                             @enderror" name="email" value="{{ $user->email }}">

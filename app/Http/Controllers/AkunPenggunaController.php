@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AkunPenggunaController extends Controller
 {
@@ -35,6 +36,12 @@ class AkunPenggunaController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), $this->rules());
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $data = $request->all();
         $data['password'] = Hash::make($request->input('password'));
         User::create($data);
@@ -42,6 +49,15 @@ class AkunPenggunaController extends Controller
         session()->flash('success', 'Akun pengguna berhasil dibuat.');
         
         return redirect()->route('akun.index');
+    }
+
+    public function rules()
+    {
+        return [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required',
+        ];
     }
 
     /**
@@ -66,6 +82,12 @@ class AkunPenggunaController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), $this->updateRules($id));
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         $data = $request->all();
         $user = User::findOrFail($id);
 
@@ -78,6 +100,14 @@ class AkunPenggunaController extends Controller
 
         session()->flash('success', 'Akun pengguna berhasil diubah.');
         return redirect()->route('akun.index');
+    }
+
+    public function updateRules($id)
+    {
+        return [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,' .$id,
+        ];
     }
 
     /**
