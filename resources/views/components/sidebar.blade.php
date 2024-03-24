@@ -17,8 +17,16 @@
                 <a class="nav-link" href="{{ url('/guru') }}"><i class="fas fa-chalkboard-user"></i> <span>Data Guru</span></a>
             </li>
            
-            <li class="{{ Request::is('data-siswa') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/data-siswa') }}"><i class="fas fa-user"></i> <span>Data Siswa</span></a>
+            <li class="{{ Request::is('siswa*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/siswa') }}"><i class="fas fa-user-group"></i> <span>Data Siswa</span></a>
+            </li>
+
+            <li class="{{ Request::is('kelas*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/kelas') }}"><i class="fas fa-chalkboard"></i> <span>Data Kelas</span></a>
+            </li>
+
+            <li class="{{ Request::is('jurusan*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/jurusan') }}"><i class="fas fa-school"></i> <span>Data Jurusan</span></a>
             </li>
             
             <li class="{{ Request::is('mata-pelajaran') ? 'active' : '' }}">
