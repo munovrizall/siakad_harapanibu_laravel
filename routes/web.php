@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AkunPenggunaController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,7 @@ Route::middleware(['auth'])->group(function () {
     
     Route::resource('akun', AkunPenggunaController::class);
     Route::resource('guru', GuruController::class);
+    Route::resource('kelas', KelasController::class);
     Route::resource('jurusan', JurusanController::class);
 });
 
