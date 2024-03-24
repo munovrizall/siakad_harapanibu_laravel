@@ -18,7 +18,7 @@
         <div class="section-header">
             <h1>Tambah Jurusan</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ url('/home') }}">Home</a></div>
+                <div class="breadcrumb-item active"><a href="{{ url('/admin-home') }}">Home</a></div>
                 <div class="breadcrumb-item"><a href="{{ url('/jurusan') }}">Jurusan</a></div>
                 <div class="breadcrumb-item">Tambah Jurusan</div>
             </div>
@@ -36,7 +36,7 @@
                         <h4>Form Penambahan Jurusan</h4>
                     </div>
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <label>Nama Jurusan <span style="color: red;">*</span></label>
                             <input type="text" class="form-control @error('nama_jurusan')

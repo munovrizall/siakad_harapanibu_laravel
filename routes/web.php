@@ -21,9 +21,9 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('home', function () {
-        return view('pages.home');
-    })->name('home');
+    Route::get('admin-home', function () {
+        return view('pages.admin.admin-home');
+    })->name('admin-home');
     
     Route::resource('akun', AkunPenggunaController::class);
     Route::resource('guru', GuruController::class);
