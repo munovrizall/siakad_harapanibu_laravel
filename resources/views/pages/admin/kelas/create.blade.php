@@ -9,13 +9,6 @@
 <link rel="stylesheet" href="{{ asset('library/select2/dist/css/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('library/bootstrap-timepicker/css/bootstrap-timepicker.min.css') }}">
 <link rel="stylesheet" href="{{ asset('library/bootstrap-tagsinput/dist/bootstrap-tagsinput.css') }}">
-
-<style>
-    .select2-container--default .select2-results__option--highlighted[aria-selected],
-    .select2-container--default .select2-results__option--highlighted[data-selected] {
-        background-color: #fbbd0d !important;
-    }
-</style>
 @endpush
 
 @section('main')
@@ -92,14 +85,5 @@
 @endsection
 
 @push('scripts')
-<script>
-    $(document).ready(function() {
-        $('.select2').select2();
 
-    });
-
-    $(document).on('select2:open', () => {
-        document.querySelector('.select2-search__field').focus();
-    });
-</script>
 @endpush

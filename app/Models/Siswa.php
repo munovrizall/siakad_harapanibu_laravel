@@ -24,4 +24,20 @@ class Siswa extends Model
     public function kelas() {
         return $this->belongsTo(Kelas::class, 'id_kelas');
     }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Event listener untuk event created
+        static::created(function ($siswa) {
+            // Membuat user baru berdasarkan data siswa yang baru dibuat
+            User::create([
+                'name' => $siswa->nama_siswa,
+                'email' => $siswa->email,
+                'password' => $siswa->password,
+                'roles' => 'SISWA',
+            ]);
+        });
+    }
 }
