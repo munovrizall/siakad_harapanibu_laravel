@@ -4,6 +4,7 @@ use App\Http\Controllers\AkunPenggunaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,24 +33,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('kelas', KelasController::class);
     Route::resource('jurusan', JurusanController::class);
     Route::resource('siswa', SiswaController::class);
+    Route::resource('mata-pelajaran', MataPelajaranController::class);
 });
 
-Route::get('/data-guru', function () {
-    return view('data-guru');
-});
-
-Route::get('/data-siswa', function () {
-    return view('data-siswa');
-});
-
-Route::get('/mata-pelajaran', function () {
-    return view('mata-pelajaran');
-});
-
-Route::get('/jadwal-pelajaran', function () {
-    return view('jadwal-pelajaran');
-});
-
-Route::get('/nilai-pelajaran', function () {
-    return view('nilai-pelajaran');
-});

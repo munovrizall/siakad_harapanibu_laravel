@@ -29,15 +29,15 @@
                 <a class="nav-link" href="{{ url('/jurusan') }}"><i class="fas fa-school"></i> <span>Data Jurusan</span></a>
             </li>
             
-            <li class="{{ Request::is('mata-pelajaran') ? 'active' : '' }}">
+            <li class="{{ Request::is('mata-pelajaran*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/mata-pelajaran') }}"><i class="fas fa-book"></i> <span>Mata Pelajaran</span></a>
             </li>
             
-            <li class="{{ Request::is('jadwal-pelajaran') ? 'active' : '' }}">
+            <li class="{{ Request::is('jadwal-pelajaran*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/jadwal-pelajaran') }}"><i class="fas fa-book"></i> <span>Jadwal Pelajaran</span></a>
             </li>
             
-            <li class="{{ Request::is('nilai-pelajaran') ? 'active' : '' }}">
+            <li class="{{ Request::is('nilai-pelajaran*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/nilai-pelajaran') }}"><i class="fas fa-book"></i> <span>Nilai Pelajaran</span></a>
             </li>
 
