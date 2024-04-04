@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kelas;
 use App\Models\Jurusan;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -18,6 +19,7 @@ class KelasController extends Controller
         $kelases = Kelas::when($request->input('name'), function ($query, $name) {
             return $query->where('nama_kelas', 'like', '%' . $name . '%');
         })
+            ->withCount('siswa')
             ->paginate(10);
         return view('pages.admin.kelas.index', compact('kelases'));
     }
@@ -62,18 +64,20 @@ class KelasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kelas $kelas)
+    public function show($id)
     {
-        return view('pages.home');
-    }
+        $kelas = Kelas::find($id);
+        $siswas = Siswa::where('id_kelas', $kelas->id)->get();
 
+        return view('pages.admin.kelas.show', compact('kelas', 'siswas'));
+    }
     /**
      * Show the form for editing the specified resource.
      */
     public function edit($id)
     {
         $kelas = Kelas::findOrFail($id);
-        $jurusans = Jurusan::all(); 
+        $jurusans = Jurusan::all();
         return view('pages.admin.kelas.edit', compact('kelas', 'jurusans'));
     }
 

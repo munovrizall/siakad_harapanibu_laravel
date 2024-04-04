@@ -84,6 +84,7 @@
 
                                         <th>Nama Kelas</th>
                                         <th>Jurusan</th>
+                                        <th>Jumlah Siswa</th>
                                         <th>Kapasitas Kelas</th>
                                         <th class="text-center">Aksi</th>
                                     </tr>
@@ -92,9 +93,15 @@
 
                                         <td>{{ $kelas->nama_kelas }}
                                         <td>{{ $kelas->jurusan->nama_jurusan }}</td>
+                                        <td>{{ $kelas->siswa_count }}</td>
                                         <td>{{ $kelas->kapasitas }}
                                         <td>
                                             <div class="d-flex justify-content-center">
+                                                <a href='{{ route('kelas.show', $kelas->id) }}' class="btn btn-sm btn-primary btn-icon" style="margin-right: 8px">
+                                                    <i class="fas fa-search"></i>
+                                                    Detail
+                                                </a>
+
                                                 <a href='{{ route('kelas.edit', $kelas->id) }}' class="btn btn-sm btn-info btn-icon">
                                                     <i class="fas fa-edit"></i>
                                                     Edit
