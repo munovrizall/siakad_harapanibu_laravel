@@ -85,7 +85,7 @@
                         </div>
                         <div class="form-group">
                             <label>No. Telepon <span style="color: red;">*</span></label>
-                            <input type="number" class="form-control @error('no_telepon')
+                            <input type="text" class="form-control @error('no_telepon')
                                 is-invalid
                             @enderror" name="no_telepon" value="{{ $guru->no_telepon }}">
                             @error('no_telepon')
