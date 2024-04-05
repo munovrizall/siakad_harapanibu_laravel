@@ -20,14 +20,14 @@ class JadwalPelajaran extends Model
     ];
 
     public function kelas() {
-        return $this->belongsTo(Kelas::class);
+        return $this->belongsTo(Kelas::class, 'id_kelas');
     }
 
     public function matpel() {
-        return $this->hasOne(MataPelajaran::class);
+        return $this->belongsTo(MataPelajaran::class, 'id_matpel');
     }
     
     public function guru() {
-        return $this->hasOne(Guru::class);
+        return $this->belongsTo(Guru::class, 'id_guru');
     }
 }

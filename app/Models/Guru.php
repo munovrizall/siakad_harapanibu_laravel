@@ -20,6 +20,10 @@ class Guru extends Model
         'password',
     ];
 
+    public function jadwalPelajaran() {
+        return $this->hasMany(JadwalPelajaran::class, 'id_guru');
+    }
+
     protected static function boot()
     {
         parent::boot();

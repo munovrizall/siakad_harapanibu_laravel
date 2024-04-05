@@ -14,4 +14,8 @@ class MataPelajaran extends Model
         'nama_pelajaran',
         'kkm'
     ];
+
+    public function jadwalPelajarans() {
+        return $this->hasMany(JadwalPelajaran::class, 'id_matpel');
+    }
 }

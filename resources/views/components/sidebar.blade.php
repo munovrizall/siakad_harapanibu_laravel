@@ -34,11 +34,7 @@
             </li>
             
             <li class="{{ Request::is('jadwal-pelajaran*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/jadwal-pelajaran') }}"><i class="fas fa-book"></i> <span>Jadwal Pelajaran</span></a>
-            </li>
-            
-            <li class="{{ Request::is('nilai-pelajaran*') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/nilai-pelajaran') }}"><i class="fas fa-book"></i> <span>Nilai Pelajaran</span></a>
+                <a class="nav-link" href="{{ url('/jadwal-pelajaran') }}"><i class="fas fa-calendar-week"></i> <span>Jadwal Pelajaran</span></a>
             </li>
 
             <li class="{{ Request::is('akun*') ? 'active' : '' }}">
