@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\AkunPenggunaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\JadwalPelajaranController;
@@ -25,10 +26,11 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('admin-home', function () {
-        return view('pages.admin.admin-home');
-    })->name('admin-home');
+    // Route::get('admin-home', function () {
+    //     return view('pages.admin.admin-home');
+    // })->name('admin-home');
     
+    Route::resource('admin-home', AdminHomeController::class);
     Route::resource('akun', AkunPenggunaController::class);
     Route::resource('guru', GuruController::class);
     Route::resource('kelas', KelasController::class);
