@@ -36,7 +36,6 @@ class Siswa extends Model
                 'name' => $siswa->nama_siswa,
                 'email' => $siswa->email,
                 'password' => $siswa->password,
-                'roles' => 'SISWA',
             ]);
         });
     }

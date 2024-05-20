@@ -35,7 +35,6 @@ class Guru extends Model
                 'name' => $guru->nama_guru,
                 'email' => $guru->email,
                 'password' => $guru->password,
-                'roles' => 'GURU',
             ]);
         });
     }
