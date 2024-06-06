@@ -5,6 +5,7 @@ use App\Http\Controllers\AkunPenggunaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalPelajaranController;
+use App\Http\Controllers\JadwalPelajaranGuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\MataPelajaranController;
@@ -41,5 +42,9 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('jadwal-pelajaran', JadwalPelajaranController::class);
     Route::get('jadwal-pelajaran/tambah/{id_kelas}', [JadwalPelajaranController::class, 'tambah'])->name('jadwal-pelajaran.tambah');
     Route::get('jadwal-pelajaran/ubah/{id_kelas}/{id}', [JadwalPelajaranController::class, 'ubah'])->name('jadwal-pelajaran.ubah');
+    
+    
+    Route::resource('jadwal-mengajar', JadwalPelajaranGuruController::class);
+
 });
 

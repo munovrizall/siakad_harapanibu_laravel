@@ -1,16 +1,16 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="{{ url('/admin-home') }}">Siakad - Harapan Ibu</a>
+            <a href="{{ url('/home') }}">Siakad - Harapan Ibu</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="{{ url('/admin-home') }}">HI</a>
+            <a href="{{ url('/home') }}">HI</a>
         </div>
 
+        @role('admin')
         <ul class="sidebar-menu">
-
-            <li class="{{ Request::is('admin-home') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ url('/admin-home') }}"><i class="fas fa-home"></i> <span>Home</span></a>
+            <li class="{{ Request::is('home') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/home') }}"><i class="fas fa-home"></i> <span>Home</span></a>
             </li>
 
             <li class="{{ Request::is('jadwal-pelajaran*') ? 'active' : '' }}">
@@ -41,6 +41,19 @@
                 <a class="nav-link" href="{{ url('/akun') }}"><i class="fas fa-user-gear"></i> <span>Akun Pengguna</span></a>
             </li>
         </ul>
+        @endrole
 
+        @role('guru')
+        <ul class="sidebar-menu">
+            <li class="{{ Request::is('home') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/home') }}"><i class="fas fa-home"></i> <span>Home</span></a>
+            </li>
+
+            <li class="{{ Request::is('jadwal-mengajar*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/jadwal-mengajar') }}"><i class="fas fa-calendar-week"></i> <span>Jadwal Mengajar</span></a>
+            </li>
+
+        </ul>
+        @endrole
     </aside>
 </div>
