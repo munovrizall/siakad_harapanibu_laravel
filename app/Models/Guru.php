@@ -20,7 +20,8 @@ class Guru extends Model
         'password',
     ];
 
-    public function jadwalPelajaran() {
+    public function jadwalPelajaran()
+    {
         return $this->hasMany(JadwalPelajaran::class, 'id_guru');
     }
 
@@ -31,11 +32,15 @@ class Guru extends Model
         // Event listener untuk event created
         static::created(function ($guru) {
             // Membuat user baru berdasarkan data guru yang baru dibuat
-            User::create([
+            $user = User::create([
                 'name' => $guru->nama_guru,
                 'email' => $guru->email,
                 'password' => $guru->password,
             ]);
+            
+            if ($user) {
+                $user->assignRole('guru');
+            }
         });
     }
 }

@@ -80,15 +80,15 @@
                             <label class="form-label">Jenis Akun <span style="color: red;">*</span></label>
                             <div class="selectgroup w-100">
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="roles" value="ADMIN" class="selectgroup-input" checked="">
+                                    <input type="radio" name="roles" value="admin" class="selectgroup-input" checked="">
                                     <span class="selectgroup-button">Admin</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="roles" value="GURU" class="selectgroup-input">
+                                    <input type="radio" name="roles" value="guru" class="selectgroup-input">
                                     <span class="selectgroup-button">Guru</span>
                                 </label>
                                 <label class="selectgroup-item">
-                                    <input type="radio" name="roles" value="SISWA" class="selectgroup-input">
+                                    <input type="radio" name="roles" value="siswa" class="selectgroup-input">
                                     <span class="selectgroup-button">Siswa</span>
                                 </label>
                             </div>

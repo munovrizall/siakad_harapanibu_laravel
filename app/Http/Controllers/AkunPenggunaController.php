@@ -44,7 +44,11 @@ class AkunPenggunaController extends Controller
 
         $data = $request->all();
         $data['password'] = Hash::make($request->input('password'));
-        User::create($data);
+        $user = User::create($data);
+        
+        if ($user) {
+            $user->assignRole($request->input('roles'));
+        }
 
         session()->flash('success', 'Akun pengguna berhasil dibuat.');
         
