@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\AkunPenggunaController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalPelajaranController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
@@ -30,7 +31,7 @@ Route::middleware(['auth'])->group(function () {
     //     return view('pages.admin.admin-home');
     // })->name('admin-home');
     
-    Route::resource('admin-home', AdminHomeController::class);
+    Route::resource('home', HomeController::class);
     Route::resource('akun', AkunPenggunaController::class);
     Route::resource('guru', GuruController::class);
     Route::resource('kelas', KelasController::class);

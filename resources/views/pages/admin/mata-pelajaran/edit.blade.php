@@ -18,7 +18,7 @@
         <div class="section-header">
             <h1>Edit Mata Pelajaran</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ url('/admin-home') }}">Home</a></div>
+                <div class="breadcrumb-item active"><a href="{{ url('/home') }}">Home</a></div>
                 <div class="breadcrumb-item"><a href="{{ url('/mata-pelajaran') }}">Mata Pelajaran</a></div>
                 <div class="breadcrumb-item">Edit Mata Pelajaran</div>
             </div>

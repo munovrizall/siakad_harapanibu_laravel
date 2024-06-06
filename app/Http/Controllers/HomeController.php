@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Siswa;
 use App\Models\User;
 
-class AdminHomeController extends Controller
+class HomeController extends Controller
 {
 
     public function index()
@@ -16,7 +16,7 @@ class AdminHomeController extends Controller
         $totalSiswa = Siswa::count();
         $totalKelas = Kelas::count();
         $totalGuru = Guru::count();
-        $totalAdmin = User::where('roles', 'ADMIN')->count();
-        return view('pages.admin.admin-home', compact('totalSiswa', 'totalKelas', 'totalGuru', 'totalAdmin'));
+        // $totalAdmin = User::where('roles', 'ADMIN')->count();
+        return view('pages.home', compact('totalSiswa', 'totalKelas', 'totalGuru'));
     }
 }

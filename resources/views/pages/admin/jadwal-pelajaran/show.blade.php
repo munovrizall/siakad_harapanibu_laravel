@@ -16,7 +16,7 @@
                 <a href="{{ route('jadwal-pelajaran.tambah', $kelas->id) }}" class="btn btn-primary"> <i class="fas fa-plus" style="margin-right: 8px;"></i>Tambah Jadwal</a>
             </div>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ url('/admin-home') }}">Home</a></div>
+                <div class="breadcrumb-item active"><a href="{{ url('/home') }}">Home</a></div>
                 <div class="breadcrumb-item"><a href="{{ url('/jadwal-pelajaran') }}">Jadwal Pelajaran</a></div>
                 <div class="breadcrumb-item">Semua Jadwal {{ $kelas-> nama_kelas }}</div>
             </div>

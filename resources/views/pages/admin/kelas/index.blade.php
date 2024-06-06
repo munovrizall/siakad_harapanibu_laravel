@@ -16,7 +16,7 @@
                 <a href="{{ route('kelas.create') }}" class="btn btn-primary"> <i class="fas fa-plus" style="margin-right: 8px;"></i>Tambah Kelas</a>
             </div>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ url('/admin-home') }}">Home</a></div>
+                <div class="breadcrumb-item active"><a href="{{ url('/home') }}">Home</a></div>
                 <div class="breadcrumb-item"><a href="{{ url('/kelas') }}">Kelas</a></div>
                 <div class="breadcrumb-item">Semua Kelas</div>
             </div>

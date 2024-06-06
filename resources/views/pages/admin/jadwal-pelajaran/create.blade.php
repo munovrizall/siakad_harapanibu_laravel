@@ -17,7 +17,7 @@
         <div class="section-header">
             <h1>Tambah Jadwal</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="{{ url('/admin-home') }}">Home</a></div>
+                <div class="breadcrumb-item active"><a href="{{ url('/home') }}">Home</a></div>
                 <div class="breadcrumb-item"><a href="{{ url('/jadwal-pelajaran') }}">Jadwal Pelajaran</a></div>
                 <div class="breadcrumb-item"><a href="{{ url('/jadwal-pelajaran/' . $kelas->id) }}">Semua Jadwal {{ $kelas->nama_kelas}}</a></div>
                 <div class="breadcrumb-item">Tambah Jadwal</div>
