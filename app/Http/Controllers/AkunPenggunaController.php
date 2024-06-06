@@ -15,12 +15,12 @@ class AkunPenggunaController extends Controller
      */
     public function index(Request $request)
     {
-        $users = DB::table('users')
-            ->when($request->input('name'), function ($query, $name) {
-                return $query->where('name', 'like', '%' . $name . '%');
-            })
-            ->paginate(10);
-        return view('pages.admin.akun.index', compact('users'));
+        $users = User::when($request->input('name'), function ($query, $name) {
+            return $query->where('name', 'like', '%' . $name . '%');
+        })
+        ->paginate(10);
+
+    return view('pages.admin.akun.index', compact('users'));
     }
 
     /**

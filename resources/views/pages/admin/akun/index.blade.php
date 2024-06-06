@@ -96,7 +96,7 @@
                                             {{ $user->email }}
                                         </td>
                                         <td>
-                                            {{ $user->roles }}
+                                            {{ $user->getRoleNames()->implode(', ') }}
                                         </td>
                                         <td>
                                             <div class="d-flex justify-content-center">
