@@ -54,6 +54,8 @@ class RolePermissionSeeder extends Seeder
         Permission::create(['name' => 'hapus-nilai-pelajaran']);
         Permission::create(['name' => 'lihat-nilai-pelajaran']);
 
+        Permission::create(['name' => 'lihat-jadwal-mengajar']);
+
         Role::create(['name' => 'admin']);
         Role::create(['name' => 'guru']);
         Role::create(['name' => 'siswa']);
@@ -105,7 +107,7 @@ class RolePermissionSeeder extends Seeder
         $roleGuru->givePermissionTo('hapus-nilai-pelajaran');
         $roleGuru->givePermissionTo('lihat-nilai-pelajaran');
 
-        $roleGuru->givePermissionTo('lihat-jadwal-pelajaran');
+        $roleGuru->givePermissionTo('lihat-jadwal-mengajar');
 
     }
 }

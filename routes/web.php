@@ -28,11 +28,10 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    // Route::get('admin-home', function () {
-    //     return view('pages.admin.admin-home');
-    // })->name('admin-home');
-    
     Route::resource('home', HomeController::class);
+});
+
+Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('akun', AkunPenggunaController::class);
     Route::resource('guru', GuruController::class);
     Route::resource('kelas', KelasController::class);
@@ -42,9 +41,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('jadwal-pelajaran', JadwalPelajaranController::class);
     Route::get('jadwal-pelajaran/tambah/{id_kelas}', [JadwalPelajaranController::class, 'tambah'])->name('jadwal-pelajaran.tambah');
     Route::get('jadwal-pelajaran/ubah/{id_kelas}/{id}', [JadwalPelajaranController::class, 'ubah'])->name('jadwal-pelajaran.ubah');
-    
-    
-    Route::resource('jadwal-mengajar', JadwalPelajaranGuruController::class);
-
 });
 
+Route::group(['middleware' => ['role:guru']], function () {
+    Route::resource('jadwal-mengajar', JadwalPelajaranGuruController::class);
+});
