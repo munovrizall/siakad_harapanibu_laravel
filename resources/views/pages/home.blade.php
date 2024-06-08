@@ -14,7 +14,7 @@
         <div class="section-header">
             <h1>Home</h1>
         </div>
-        @role('admin')
+        @hasanyrole('admin|guru')
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
@@ -64,7 +64,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">
                     <div class="card-icon bg-success">
-                        <i class="fas fa-user-gear"></i>
+                        <i class="fas fa-school"></i>
                     </div>
                     <div class="card-wrap">
                         <div class="card-header">
@@ -77,7 +77,7 @@
                 </div>
             </div>
         </div>
-        @endrole
+        @endhasanyrole
         <div class="card">
             <div class="card-header">
                 <h4>Berita Terkini</h4>
