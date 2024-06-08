@@ -26,6 +26,11 @@ class Siswa extends Model
         return $this->belongsTo(Kelas::class, 'id_kelas');
     }
 
+    public function nilaiPelajaran()
+    {
+        return $this->hasMany(NilaiPelajaran::class, 'id_siswa');
+    }
+
     protected static function boot()
     {
         parent::boot();

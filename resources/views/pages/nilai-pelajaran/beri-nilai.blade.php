@@ -32,6 +32,29 @@
         </div>
 
         <div class="section-body">
+
+            @if (session('success'))
+            <div class="alert alert-success alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    {{ session('success') }}
+                </div>
+            </div>
+            @endif
+
+            @if (session('danger'))
+            <div class="alert alert-danger alert-dismissible show fade">
+                <div class="alert-body">
+                    <button class="close" data-dismiss="alert">
+                        <span>&times;</span>
+                    </button>
+                    {{ session('danger') }}
+                </div>
+            </div>
+            @endif
+
             <h2 class="section-title">Kelas {{ $kelas->nama_kelas }}</h2>
             <p class="section-lead">
                 Kapasitas Kelas : {{ $siswas->count() }}/{{ $kelas->kapasitas }}
@@ -45,6 +68,7 @@
                             <th>Nilai UTS</th>
                             <th>Nilai UAS</th>
                             <th>Nilai Rapot</th>
+                            <th class="text-center">Aksi</th>
                         </tr>
                         @foreach ($siswas as $siswa)
                         <tr>
@@ -53,7 +77,27 @@
                             <td> {{ $siswa->uts }}</td>
                             <td> {{ $siswa->uas }}</td>
                             <td> {{ $siswa->nilai }}</td>
-                            
+                            <td>
+                                <div class="d-flex justify-content-center">
+
+                                    <a href="{{ $siswa->id_nilai_pelajaran 
+                                    ? route('nilai-pelajaran.ubah', ['id_kelas' => $id_kelas, 'id_matpel' => $id_matpel, 'id_siswa' => $siswa->siswa_id, 'id_nilai_pelajaran' => $siswa->id_nilai_pelajaran]) 
+                                    : route('nilai-pelajaran.tambah', ['id_kelas' => $id_kelas, 'id_matpel' => $id_matpel, 'id_siswa' => $siswa->siswa_id]) }}" class="btn btn-sm btn-primary btn-icon" style="margin-right: 8px">
+                                        <i class="fas fa-edit"></i>
+                                        Input Nilai
+                                    </a>
+
+                                    @if ($siswa->id_nilai_pelajaran)
+                                    <form action="{{ route('nilai-pelajaran.hapus', [$siswa->id_nilai_pelajaran, $id_kelas, $id_matpel]) }}" method="POST" class="ml-2">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger btn-icon confirm-delete">
+                                            <i class="fas fa-times"></i> Hapus
+                                        </button>
+                                    </form>
+                                    @endif
+                                </div>
+                            </td>
                         </tr>
                         @endforeach
 

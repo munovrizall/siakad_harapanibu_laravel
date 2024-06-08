@@ -48,4 +48,9 @@ Route::group(['middleware' => ['role:guru']], function () {
     Route::resource('jadwal-mengajar', JadwalPelajaranGuruController::class);
     Route::resource('nilai-pelajaran', NilaiPelajaranController::class);
     Route::get('nilai-pelajaran/beri-nilai/{id_kelas}/{id_matpel}', [NilaiPelajaranController::class, 'beriNilai'])->name('nilai-pelajaran.beri-nilai');
+    Route::get('nilai-pelajaran/beri-nilai/ubah/{id_kelas}/{id_matpel}/{id_siswa}/{id_nilai_pelajaran}', [NilaiPelajaranController::class, 'ubah'])->name('nilai-pelajaran.ubah');
+    Route::get('nilai-pelajaran/beri-nilai/tambah/{id_kelas}/{id_matpel}/{id_siswa}', [NilaiPelajaranController::class, 'tambah'])->name('nilai-pelajaran.tambah');
+    Route::put('/nilai-pelajaran/perbarui/{id}/{id_kelas}/{id_matpel}', [NilaiPelajaranController::class, 'perbarui'])->name('nilai-pelajaran.perbarui');
+    Route::delete('/nilai-pelajaran/hapus/{id}/{id_kelas}/{id_matpel}', [NilaiPelajaranController::class, 'hapus'])->name('nilai-pelajaran.hapus');
+
 });

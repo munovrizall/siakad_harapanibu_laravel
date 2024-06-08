@@ -29,6 +29,10 @@ class NilaiPelajaran extends Model
         return $this->belongsTo(Siswa::class, 'id_siswa');
     }
 
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class, 'id_kelas');
+    }
     public function mataPelajaran()
     {
         return $this->belongsTo(MataPelajaran::class, 'id_matpel');
