@@ -11,8 +11,26 @@ class NilaiPelajaran extends Model
 
     protected $table = 'nilai_pelajaran';
     protected $fillable = [
+        'id_guru',
         'id_siswa',
         'id_matpel',
+        'uts',
+        'uas',
         'nilai',
     ];
+
+    public function guru()
+    {
+        return $this->belongsTo(Guru::class, 'id_guru');
+    }
+
+    public function siswa()
+    {
+        return $this->belongsTo(Siswa::class, 'id_siswa');
+    }
+
+    public function mataPelajaran()
+    {
+        return $this->belongsTo(MataPelajaran::class, 'id_matpel');
+    }
 }

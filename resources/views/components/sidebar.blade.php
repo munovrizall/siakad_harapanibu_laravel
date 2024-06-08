@@ -52,6 +52,10 @@
             <li class="{{ Request::is('jadwal-mengajar*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/jadwal-mengajar') }}"><i class="fas fa-calendar-week"></i> <span>Jadwal Mengajar</span></a>
             </li>
+            
+            <li class="{{ Request::is('nilai-pelajaran*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/nilai-pelajaran') }}"><i class="fas fa-apple-whole"></i> <span>Nilai Pelajaran</span></a>
+            </li>
 
         </ul>
         @endrole

@@ -9,6 +9,7 @@ use App\Http\Controllers\JadwalPelajaranGuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\MataPelajaranController;
+use App\Http\Controllers\NilaiPelajaranController;
 use App\Http\Controllers\SiswaController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +46,6 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 Route::group(['middleware' => ['role:guru']], function () {
     Route::resource('jadwal-mengajar', JadwalPelajaranGuruController::class);
+    Route::resource('nilai-pelajaran', NilaiPelajaranController::class);
+    Route::get('nilai-pelajaran/beri-nilai/{id_kelas}/{id_matpel}', [NilaiPelajaranController::class, 'beriNilai'])->name('nilai-pelajaran.beri-nilai');
 });
