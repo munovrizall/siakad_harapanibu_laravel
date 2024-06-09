@@ -46,6 +46,8 @@ class Siswa extends Model
 
             if ($user) {
                 $user->assignRole('siswa');
+                $siswa->user_id = $user->id; 
+                $siswa->save();
             }
         });
     }

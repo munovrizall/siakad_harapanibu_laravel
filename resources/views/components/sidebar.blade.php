@@ -56,6 +56,18 @@
             <li class="{{ Request::is('nilai-pelajaran*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/nilai-pelajaran') }}"><i class="fas fa-apple-whole"></i> <span>Nilai Pelajaran</span></a>
             </li>
+        </ul>
+        @endrole
+
+        @role('siswa')
+        <ul class="sidebar-menu">
+            <li class="{{ Request::is('home') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/home') }}"><i class="fas fa-home"></i> <span>Home</span></a>
+            </li>
+           
+            <li class="{{ Request::is('laporan-penilaian') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/laporan-penilaian') }}"><i class="fas fa-book"></i> <span>Laporan Penilaian</span></a>
+            </li>
 
         </ul>
         @endrole

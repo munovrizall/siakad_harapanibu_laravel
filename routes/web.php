@@ -8,6 +8,7 @@ use App\Http\Controllers\JadwalPelajaranController;
 use App\Http\Controllers\JadwalPelajaranGuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\LaporanPenilaianController;
 use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\NilaiPelajaranController;
 use App\Http\Controllers\SiswaController;
@@ -53,4 +54,9 @@ Route::group(['middleware' => ['role:guru']], function () {
     Route::put('/nilai-pelajaran/perbarui/{id}/{id_kelas}/{id_matpel}', [NilaiPelajaranController::class, 'perbarui'])->name('nilai-pelajaran.perbarui');
     Route::delete('/nilai-pelajaran/hapus/{id}/{id_kelas}/{id_matpel}', [NilaiPelajaranController::class, 'hapus'])->name('nilai-pelajaran.hapus');
 
+});
+
+Route::group(['middleware' => ['role:siswa']], function () {
+    Route::resource('laporan-penilaian', LaporanPenilaianController::class);
+  
 });
