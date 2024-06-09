@@ -106,7 +106,6 @@ class NilaiPelajaranController extends Controller
         ]);
 
         $data = $request->all();
-
         NilaiPelajaran::create($data);
 
         session()->flash('success', 'Data Nilai berhasil ditambah!');

@@ -13,6 +13,7 @@ class NilaiPelajaran extends Model
     protected $fillable = [
         'id_guru',
         'id_siswa',
+        'id_kelas',
         'id_matpel',
         'uts',
         'uas',
