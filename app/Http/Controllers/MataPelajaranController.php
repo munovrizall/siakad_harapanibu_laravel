@@ -19,7 +19,7 @@ class MataPelajaranController extends Controller
                 return $query->where('nama_pelajaran', 'like', '%' . $name . '%');
             })
             ->paginate(10);
-        return view('pages.admin.mata-pelajaran.index', compact('mata_pelajarans'));
+        return view('pages.mata-pelajaran.index', compact('mata_pelajarans'));
     }
 
     /**
@@ -27,7 +27,7 @@ class MataPelajaranController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.mata-pelajaran.create');
+        return view('pages.mata-pelajaran.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class MataPelajaranController extends Controller
     public function edit($id)
     {
         $mata_pelajaran = MataPelajaran::findOrFail($id);
-        return view('pages.admin.mata-pelajaran.edit', compact('mata_pelajaran'));
+        return view('pages.mata-pelajaran.edit', compact('mata_pelajaran'));
     }
 
     /**

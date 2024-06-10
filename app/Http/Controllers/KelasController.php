@@ -21,7 +21,7 @@ class KelasController extends Controller
         })
             ->withCount('siswa')
             ->paginate(10);
-        return view('pages.admin.kelas.index', compact('kelases'));
+        return view('pages.kelas.index', compact('kelases'));
     }
 
     /**
@@ -31,7 +31,7 @@ class KelasController extends Controller
     {
         $jurusans = Jurusan::all();
 
-        return view('pages.admin.kelas.create', compact('jurusans'));
+        return view('pages.kelas.create', compact('jurusans'));
     }
 
     /**
@@ -69,7 +69,7 @@ class KelasController extends Controller
         $kelas = Kelas::find($id);
         $siswas = Siswa::where('id_kelas', $kelas->id)->get();
 
-        return view('pages.admin.kelas.show', compact('kelas', 'siswas'));
+        return view('pages.kelas.show', compact('kelas', 'siswas'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -78,7 +78,7 @@ class KelasController extends Controller
     {
         $kelas = Kelas::findOrFail($id);
         $jurusans = Jurusan::all();
-        return view('pages.admin.kelas.edit', compact('kelas', 'jurusans'));
+        return view('pages.kelas.edit', compact('kelas', 'jurusans'));
     }
 
     /**

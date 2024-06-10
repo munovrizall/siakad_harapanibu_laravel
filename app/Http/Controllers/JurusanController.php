@@ -19,7 +19,7 @@ class JurusanController extends Controller
                 return $query->where('nama_jurusan', 'like', '%' . $name . '%');
             })
             ->paginate(10);
-        return view('pages.admin.jurusan.index', compact('jurusans'));
+        return view('pages.jurusan.index', compact('jurusans'));
     }
 
     /**
@@ -27,7 +27,7 @@ class JurusanController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.jurusan.create');
+        return view('pages.jurusan.create');
     }
 
     /**
@@ -69,7 +69,7 @@ class JurusanController extends Controller
     public function edit($id)
     {
         $jurusan = Jurusan::findOrFail($id);
-        return view('pages.admin.jurusan.edit', compact('jurusan'));
+        return view('pages.jurusan.edit', compact('jurusan'));
     }
 
     /**

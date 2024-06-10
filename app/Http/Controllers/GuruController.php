@@ -21,7 +21,7 @@ class GuruController extends Controller
                 return $query->where('nama_guru', 'like', '%' . $name . '%');
             })
             ->paginate(10);
-        return view('pages.admin.guru.index', compact('gurus'));
+        return view('pages.guru.index', compact('gurus'));
     }
 
     /**
@@ -29,7 +29,7 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.guru.create');
+        return view('pages.guru.create');
     }
 
     /**
@@ -78,7 +78,7 @@ class GuruController extends Controller
     public function edit($id)
     {
         $guru = Guru::findOrFail($id);
-        return view('pages.admin.guru.edit', compact('guru'));
+        return view('pages.guru.edit', compact('guru'));
     }
 
     /**

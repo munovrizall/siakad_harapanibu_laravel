@@ -21,7 +21,7 @@ class JadwalPelajaranController extends Controller
         })
             ->withCount('siswa')
             ->paginate(10);
-        return view('pages.admin.jadwal-pelajaran.index', compact('kelases'));
+        return view('pages.jadwal-pelajaran.index', compact('kelases'));
     }
 
     /**
@@ -35,7 +35,7 @@ class JadwalPelajaranController extends Controller
         $pelajarans = MataPelajaran::all();
         $gurus = Guru::all();
 
-        return view('pages.admin.jadwal-pelajaran.create', compact('kelas', 'kelases', 'id_kelas', 'pelajarans', 'gurus'));
+        return view('pages.jadwal-pelajaran.create', compact('kelas', 'kelases', 'id_kelas', 'pelajarans', 'gurus'));
     }
 
     /**
@@ -79,7 +79,7 @@ class JadwalPelajaranController extends Controller
             ->orderBy('jam_mulai')
             ->paginate(10);
 
-        return view('pages.admin.jadwal-pelajaran.show', compact('kelas', 'jadwal_pelajarans'));
+        return view('pages.jadwal-pelajaran.show', compact('kelas', 'jadwal_pelajarans'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -92,7 +92,7 @@ class JadwalPelajaranController extends Controller
         $kelases = Kelas::all();
         $pelajarans = MataPelajaran::all();
         $gurus = Guru::all();
-        return view('pages.admin.jadwal-pelajaran.edit', compact('jadwal_pelajaran', 'kelas', 'pelajarans', 'gurus'));
+        return view('pages.jadwal-pelajaran.edit', compact('jadwal_pelajaran', 'kelas', 'pelajarans', 'gurus'));
     }
 
     /**

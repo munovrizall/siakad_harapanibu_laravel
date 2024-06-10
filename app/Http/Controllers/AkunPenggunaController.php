@@ -20,7 +20,7 @@ class AkunPenggunaController extends Controller
         })
         ->paginate(10);
 
-    return view('pages.admin.akun.index', compact('users'));
+    return view('pages.akun.index', compact('users'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AkunPenggunaController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.akun.create');
+        return view('pages.akun.create');
     }
 
     /**
@@ -78,7 +78,7 @@ class AkunPenggunaController extends Controller
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('pages.admin.akun.edit', compact('user'));
+        return view('pages.akun.edit', compact('user'));
     }
 
     /**

@@ -20,7 +20,7 @@ class SiswaController extends Controller
                 return $query->where('nama_siswa', 'like', '%' . $name . '%');
             })
             ->paginate(10);
-        return view('pages.admin.siswa.index', compact('siswas'));
+        return view('pages.siswa.index', compact('siswas'));
     }
 
     /**
@@ -29,7 +29,7 @@ class SiswaController extends Controller
     public function create()
     {
         $kelases = Kelas::all();
-        return view('pages.admin.siswa.create', compact('kelases'));
+        return view('pages.siswa.create', compact('kelases'));
     }
 
     /**
@@ -80,7 +80,7 @@ class SiswaController extends Controller
     {
         $kelases = Kelas::all();
         $siswa = Siswa::findOrFail($id);
-        return view('pages.admin.siswa.edit', compact('siswa', 'kelases'));
+        return view('pages.siswa.edit', compact('siswa', 'kelases'));
     }
 
     /**
