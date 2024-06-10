@@ -31,6 +31,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('home', HomeController::class);
+    Route::get('/laporan-penilaian/cetak-pdf', [LaporanPenilaianController::class, 'pdf'])->name('laporan-penilaian.cetak-pdf');
+
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
@@ -58,5 +60,4 @@ Route::group(['middleware' => ['role:guru']], function () {
 
 Route::group(['middleware' => ['role:siswa']], function () {
     Route::resource('laporan-penilaian', LaporanPenilaianController::class);
-  
 });

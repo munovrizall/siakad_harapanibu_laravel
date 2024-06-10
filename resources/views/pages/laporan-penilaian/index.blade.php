@@ -34,9 +34,8 @@
                                 </div>
                                 <div class="col-6">
                                     <div class="float-right">
-                                        <button class="btn btn-info"><i class="fas fa-print"></i>
-                                            Cetak Rapot
-                                        </button>
+                                        <a href="{{ route('laporan-penilaian.cetak-pdf') }}" class="btn btn-info"><i class="fas fa-file-pdf"></i> Lihat PDF</a>
+
                                     </div>
                                 </div>
                             </div>
