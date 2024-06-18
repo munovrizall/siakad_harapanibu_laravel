@@ -9,6 +9,7 @@ use App\Http\Controllers\JadwalPelajaranGuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\KepalaSekolahController;
+use App\Http\Controllers\LaporanAkademikController;
 use App\Http\Controllers\LaporanPenilaianController;
 use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\NilaiPelajaranController;
@@ -61,4 +62,9 @@ Route::group(['middleware' => ['role:guru']], function () {
 
 Route::group(['middleware' => ['role:siswa']], function () {
     Route::resource('laporan-penilaian', LaporanPenilaianController::class);
+});
+
+Route::group(['middleware' => ['role:kepala sekolah']], function () {
+    Route::resource('laporan-akademik', LaporanAkademikController::class);
+    Route::get('laporan-akademik/lihat-nilai/{id_kelas}/{id_matpel}', [LaporanAkademikController::class, 'lihatNilai'])->name('laporan-akademik.lihat-nilai');
 });

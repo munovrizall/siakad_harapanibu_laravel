@@ -89,6 +89,10 @@
             <li class="{{ Request::is('guru*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/guru') }}"><i class="fas fa-chalkboard-user"></i> <span>Data Guru</span></a>
             </li>
+            
+            <li class="{{ Request::is('laporan-akademik*') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/laporan-akademik') }}"><i class="fas fa-book"></i> <span>Laporan Akademik</span></a>
+            </li>
         </ul>
         @endrole
     </aside>
