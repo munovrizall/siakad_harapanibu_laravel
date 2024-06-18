@@ -12,9 +12,11 @@
     <section class="section">
         <div class="section-header">
             <h1>Data Siswa</h1>
+            @role('admin')
             <div class="section-header-button">
                 <a href="{{ route('siswa.create') }}" class="btn btn-primary"> <i class="fas fa-plus" style="margin-right: 8px;"></i>Tambah Siswa</a>
             </div>
+            @endrole
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ url('/home') }}">Home</a></div>
                 <div class="breadcrumb-item"><a href="{{ url('/siswa') }}">Siswa</a></div>
@@ -78,11 +80,11 @@
 
                             <div class="clearfix mb-3"></div>
 
+                            @role('admin')
                             <div class="table-responsive">
                                 <table class="table-striped table">
                                     <tr>
-
-                                        <th>NIP</th>
+                                        <th>NIS</th>
                                         <th>Nama Siswa</th>
                                         <th>Email</th>
                                         <th>No. Telepon</th>
@@ -122,6 +124,44 @@
 
                                 </table>
                             </div>
+                            @endrole
+                            
+                            @role('kepala sekolah')
+                            <div class="table-responsive">
+                                <table class="table-striped table">
+                                    <tr>
+
+                                        <th>NIS</th>
+                                        <th>Nama Siswa</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Kelas</th>
+                                        <th>Email</th>
+                                        <th>No. Telepon</th>
+                                    </tr>
+                                    @foreach ($siswas as $siswa)
+                                    <tr>
+
+                                        <td>{{ $siswa->nis }}
+                                        </td>
+                                        <td>{{ $siswa->nama_siswa }}
+                                        </td>
+                                        <td>{{ $siswa->jenis_kelamin }}
+                                        </td>
+                                        <td>{{ $siswa->nama_kelas }}
+                                        </td>
+                                        <td>
+                                            {{ $siswa->email }}
+                                        </td>
+                                        <td>
+                                            {{ $siswa->no_telepon }}
+                                        </td>
+
+                                    </tr>
+                                    @endforeach
+
+                                </table>
+                            </div>
+                            @endrole
                             <div class="float-right">
                                 {{ $siswas->withQueryString()->links() }}
                             </div>

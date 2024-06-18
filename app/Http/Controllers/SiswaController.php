@@ -16,10 +16,13 @@ class SiswaController extends Controller
     public function index(Request $request)
     {
         $siswas = DB::table('siswa')
+            ->join('kelas', 'siswa.id_kelas', '=', 'kelas.id')
+            ->select('siswa.*', 'kelas.nama_kelas')
             ->when($request->input('name'), function ($query, $name) {
                 return $query->where('nama_siswa', 'like', '%' . $name . '%');
             })
             ->paginate(10);
+
         return view('pages.siswa.index', compact('siswas'));
     }
 
@@ -125,17 +128,17 @@ class SiswaController extends Controller
     {
         // Temukan data siswa
         $siswa = Siswa::findOrFail($id);
-    
+
         // Temukan user dengan email yang sama dengan email siswa yang akan dihapus
         $user = User::where('email', $siswa->email)->first();
-    
+
         // Hapus data siswa
         $siswa->delete();
         // Jika user ditemukan, hapus juga data user
         if ($user) {
             $user->delete();
         }
-    
+
         // Setelah penghapusan, kembalikan ke halaman yang sesuai
         session()->flash('danger', 'Data siswa berhasil dihapus!');
         return redirect()->route('siswa.index');

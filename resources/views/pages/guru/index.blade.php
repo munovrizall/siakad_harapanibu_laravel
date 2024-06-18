@@ -12,9 +12,11 @@
     <section class="section">
         <div class="section-header">
             <h1>Data Guru</h1>
+            @role('admin')
             <div class="section-header-button">
                 <a href="{{ route('guru.create') }}" class="btn btn-primary"> <i class="fas fa-plus" style="margin-right: 8px;"></i>Tambah Guru</a>
             </div>
+            @endrole
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ url('/home') }}">Home</a></div>
                 <div class="breadcrumb-item"><a href="{{ url('/guru') }}">Guru</a></div>
@@ -78,6 +80,7 @@
 
                             <div class="clearfix mb-3"></div>
 
+                            @role('admin')
                             <div class="table-responsive">
                                 <table class="table-striped table">
                                     <tr>
@@ -122,6 +125,41 @@
 
                                 </table>
                             </div>
+                            @endrole
+
+                            @role('kepala sekolah')
+                            <div class="table-responsive">
+                                <table class="table-striped table">
+                                    <tr>
+
+                                        <th>NIP</th>
+                                        <th>Nama Guru</th>
+                                        <th>Jenis Kelamin</th>
+                                        <th>Email</th>
+                                        <th>No. Telepon</th>
+                                    </tr>
+                                    @foreach ($gurus as $guru)
+                                    <tr>
+
+                                        <td>{{ $guru->nip }}
+                                        </td>
+                                        <td>{{ $guru->nama_guru }}
+                                        </td>
+                                        <td>{{ $guru->jenis_kelamin }}
+                                        </td>
+                                        <td>
+                                            {{ $guru->email }}
+                                        </td>
+                                        <td>
+                                            {{ $guru->no_telepon }}
+                                        </td>
+                                        
+                                    </tr>
+                                    @endforeach
+
+                                </table>
+                            </div>
+                            @endrole
                             <div class="float-right">
                                 {{ $gurus->withQueryString()->links() }}
                             </div>
