@@ -14,7 +14,7 @@
         <div class="section-header">
             <h1>Home</h1>
         </div>
-        @hasanyrole('admin|guru')
+        @hasanyrole('admin|guru|kepala sekolah')
         <div class="row">
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
                 <div class="card card-statistic-1">

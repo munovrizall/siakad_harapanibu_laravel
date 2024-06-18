@@ -8,6 +8,7 @@ use App\Http\Controllers\JadwalPelajaranController;
 use App\Http\Controllers\JadwalPelajaranGuruController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\JurusanController;
+use App\Http\Controllers\KepalaSekolahController;
 use App\Http\Controllers\LaporanPenilaianController;
 use App\Http\Controllers\MataPelajaranController;
 use App\Http\Controllers\NilaiPelajaranController;
@@ -32,15 +33,15 @@ Route::get('/', function () {
 Route::middleware(['auth'])->group(function () {
     Route::resource('home', HomeController::class);
     Route::get('/laporan-penilaian/cetak-pdf', [LaporanPenilaianController::class, 'pdf'])->name('laporan-penilaian.cetak-pdf');
-
+    Route::resource('guru', GuruController::class);
+    Route::resource('siswa', SiswaController::class);
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
     Route::resource('akun', AkunPenggunaController::class);
-    Route::resource('guru', GuruController::class);
+    Route::resource('kepala-sekolah', KepalaSekolahController::class);
     Route::resource('kelas', KelasController::class);
     Route::resource('jurusan', JurusanController::class);
-    Route::resource('siswa', SiswaController::class);
     Route::resource('mata-pelajaran', MataPelajaranController::class);
     Route::resource('jadwal-pelajaran', JadwalPelajaranController::class);
     Route::get('jadwal-pelajaran/tambah/{id_kelas}', [JadwalPelajaranController::class, 'tambah'])->name('jadwal-pelajaran.tambah');
