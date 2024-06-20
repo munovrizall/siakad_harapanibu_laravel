@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\AdminHomeController;
 use App\Http\Controllers\AkunPenggunaController;
+use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\BiodataGuruController;
+use App\Http\Controllers\BiodataSiswaController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JadwalPelajaranController;
@@ -57,11 +60,13 @@ Route::group(['middleware' => ['role:guru']], function () {
     Route::get('nilai-pelajaran/beri-nilai/tambah/{id_kelas}/{id_matpel}/{id_siswa}', [NilaiPelajaranController::class, 'tambah'])->name('nilai-pelajaran.tambah');
     Route::put('/nilai-pelajaran/perbarui/{id}/{id_kelas}/{id_matpel}', [NilaiPelajaranController::class, 'perbarui'])->name('nilai-pelajaran.perbarui');
     Route::delete('/nilai-pelajaran/hapus/{id}/{id_kelas}/{id_matpel}', [NilaiPelajaranController::class, 'hapus'])->name('nilai-pelajaran.hapus');
+    Route::resource('biodata-guru', BiodataGuruController::class);
 
 });
 
 Route::group(['middleware' => ['role:siswa']], function () {
     Route::resource('laporan-penilaian', LaporanPenilaianController::class);
+    Route::resource('biodata-siswa', BiodataSiswaController::class);
 });
 
 Route::group(['middleware' => ['role:kepala sekolah']], function () {

@@ -60,6 +60,10 @@
             <li class="{{ Request::is('nilai-pelajaran*') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/nilai-pelajaran') }}"><i class="fas fa-apple-whole"></i> <span>Nilai Pelajaran</span></a>
             </li>
+
+            <li class="{{ Request::is('biodata-guru') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/biodata-guru') }}"><i class="fas fa-user"></i> <span>Biodata Guru</span></a>
+            </li>
         </ul>
         @endrole
 
@@ -71,6 +75,10 @@
 
             <li class="{{ Request::is('laporan-penilaian') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ url('/laporan-penilaian') }}"><i class="fas fa-book"></i> <span>Laporan Penilaian</span></a>
+            </li>
+           
+            <li class="{{ Request::is('biodata-siswa') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ url('/biodata-siswa') }}"><i class="fas fa-user"></i> <span>Biodata Siswa</span></a>
             </li>
 
         </ul>
